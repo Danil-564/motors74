@@ -1,0 +1,10 @@
+# robots.txt для Motors74
+
+User-agent: *
+Allow: /
+
+Sitemap: https://motors74.onrender.com/sitemap.xml
+
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/ 

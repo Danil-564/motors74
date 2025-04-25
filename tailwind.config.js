@@ -7,52 +7,47 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        'primary': {
-          50: '#e6f1ff',
-          100: '#cce3ff',
-          200: '#99c7ff',
-          300: '#66abff',
-          400: '#338fff',
-          500: '#0073ff', // Primary blue
-          600: '#005ccc',
-          700: '#004599',
-          800: '#002e66',
-          900: '#001733',
-        },
-        'secondary': {
-          50: '#e6fff6',
-          100: '#ccffed',
-          200: '#99ffdb',
-          300: '#66ffc9',
-          400: '#33ffb7',
-          500: '#00ffa5', // Accent light green
-          600: '#00cc84',
-          700: '#009963',
-          800: '#006642',
-          900: '#003321',
-        },
-        'neutral-dark': '#1A202C',
-        'neutral-light': '#F7FAFC',
-      },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         heading: ['Montserrat', 'sans-serif'],
       },
+      colors: {
+        primary: {
+          50: '#f0f7fe',
+          100: '#dcedfc',
+          200: '#c0dffb',
+          300: '#95caf8',
+          400: '#63acf2',
+          500: '#0e65a3', // основной цвет
+          600: '#0c5489',
+          700: '#0b4674',
+          800: '#093a61',
+          900: '#082f4e',
+        },
+        secondary: {
+          50: '#fffaee',
+          100: '#fff3d6',
+          200: '#ffe6ad',
+          300: '#fed683',
+          400: '#f9b734', // основной цвет
+          500: '#f9b734',
+          600: '#e29d19',
+          700: '#bd7f12',
+          800: '#9a6414',
+          900: '#805315',
+        },
+        neutral: {
+          light: '#f9fafb',
+          DEFAULT: '#f3f4f6',
+          dark: '#1f2937',
+        },
+      },
       boxShadow: {
-        'custom': '0 4px 12px rgba(0, 115, 255, 0.15)',
-      },
-      borderRadius: {
-        'xl': '1rem',
-        '2xl': '2rem',
-      },
-      backgroundImage: {
-        'hero-pattern': "url('/img/hero-bg.jpg')",
-        'footer-texture': "url('/img/footer-bg.jpg')",
+        'custom': '0 4px 20px rgba(0, 0, 0, 0.06)',
       },
       animation: {
-        'fade-in': 'fadeIn 0.5s ease-in-out',
-        'slide-up': 'slideUp 0.5s ease-in-out',
+        'fade-in': 'fadeIn 0.5s ease-out',
+        'slide-up': 'slideUp 0.5s ease-out',
       },
       keyframes: {
         fadeIn: {
