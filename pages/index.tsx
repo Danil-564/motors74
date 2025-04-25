@@ -109,13 +109,9 @@ export default function Home() {
               </div>
               <div className="md:w-1/2">
                 <img 
-                  src="/images/engine-hero.jpg" 
+                  src="/images/placeholder.svg" 
                   alt="Контрактный двигатель" 
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "https://via.placeholder.com/600x400?text=Контрактный+двигатель";
-                  }}
                 />
               </div>
             </div>
@@ -201,13 +197,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <img 
-                src="/images/engines.jpg" 
+                src="/images/placeholder.svg" 
                 alt="Двигатели" 
                 className="w-full h-48 object-cover"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = "https://via.placeholder.com/400x200?text=Двигатели";
-                }}  
               />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-4">Двигатели (ДВС)</h3>
@@ -218,13 +210,9 @@ export default function Home() {
             
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <img 
-                src="/images/transmissions.jpg" 
+                src="/images/placeholder.svg" 
                 alt="Коробки передач" 
                 className="w-full h-48 object-cover"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = "https://via.placeholder.com/400x200?text=Коробки+передач";
-                }}
               />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-4">Коробки передач</h3>
@@ -235,13 +223,9 @@ export default function Home() {
             
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <img 
-                src="/images/parts.jpg" 
+                src="/images/placeholder.svg" 
                 alt="Запчасти для двигателя" 
                 className="w-full h-48 object-cover"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = "https://via.placeholder.com/400x200?text=Запчасти+для+двигателя";
-                }}
               />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-4">Запчасти для двигателя</h3>

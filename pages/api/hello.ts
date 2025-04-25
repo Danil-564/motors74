@@ -1,8 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
+  status: string;
   name: string;
   version: string;
+  timestamp: number;
 };
 
 export default function handler(
@@ -10,7 +12,9 @@ export default function handler(
   res: NextApiResponse<Data>
 ) {
   res.status(200).json({ 
+    status: 'ok',
     name: 'Motors74 API',
-    version: '1.0.0'
+    version: '1.0.0',
+    timestamp: Date.now()
   });
 } 

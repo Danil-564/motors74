@@ -2,8 +2,10 @@ services:
   - type: web
     name: motors74
     env: node
+    plan: free
     buildCommand: npm install && npm run render-build
     startCommand: npm start
+    healthCheckPath: /api/healthcheck
     envVars:
       - key: NODE_ENV
         value: production
@@ -14,4 +16,6 @@ services:
       - key: NEXTAUTH_URL
         value: https://motors74.onrender.com
       - key: NEXTAUTH_SECRET
-        value: jVP4SJyVQqA0NBBqRbbayA6o7QQ6o1/h3bZN2xvQwQc= 
+        value: jVP4SJyVQqA0NBBqRbbayA6o7QQ6o1/h3bZN2xvQwQc=
+      - key: NEXT_PUBLIC_API_URL
+        value: https://motors74.onrender.com 

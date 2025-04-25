@@ -6,7 +6,8 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
   --primary-color: 14, 101, 163;
   --secondary-color: 249, 183, 52;
 }
@@ -14,13 +15,14 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-rgb: 10, 10, 10;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+  background: rgb(var(--background-start-rgb)) rgb(var(--background-end-rgb));
   @apply font-sans text-neutral-dark bg-white;
 }
 
@@ -69,7 +71,7 @@ body {
   }
   
   .btn-primary {
-    @apply btn bg-primary-500 text-white hover:bg-primary-600 focus:ring-primary-500;
+    @apply inline-block py-3 px-6 bg-primary-600 text-white font-medium rounded hover:bg-primary-700 transition-colors;
   }
   
   .btn-secondary {
@@ -77,7 +79,7 @@ body {
   }
   
   .btn-outline {
-    @apply btn border-primary-500 text-primary-500 bg-transparent hover:bg-primary-50 focus:ring-primary-500;
+    @apply inline-block py-3 px-6 border border-primary-600 text-primary-600 font-medium rounded hover:bg-primary-100 hover:border-primary-700 hover:text-primary-700 transition-colors;
   }
   
   .btn-ghost {
@@ -135,4 +137,24 @@ body {
   .animate-slide-up {
     @apply animate-slide-up;
   }
+}
+
+.prose h2 {
+  @apply text-2xl font-bold mt-8 mb-4;
+}
+
+.prose h3 {
+  @apply text-xl font-bold mt-6 mb-3;
+}
+
+.prose p {
+  @apply mb-4;
+}
+
+.prose ul {
+  @apply list-disc pl-6 mb-4;
+}
+
+.prose li {
+  @apply mb-2;
 } 

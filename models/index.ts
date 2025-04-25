@@ -1,19 +1,11 @@
-import User from './User';
-import type { IUser } from './User';
-import Brand from './Brand';
-import type { IBrand } from './Brand';
-import Model from './Model';
-import type { IModel } from './Model';
-import Category from './Category';
-import type { ICategory } from './Category';
-import Engine from './Engine';
-import type { IEngine } from './Engine';
-import Part from './Part';
-import type { IPart } from './Part';
-import Order from './Order';
-import type { IOrder, IOrderItem, IOrderAddress, IOrderCustomer } from './Order';
-import Contact from './Contact';
-import type { IContact } from './Contact';
+import User, { IUser } from './User';
+import Brand, { IBrand } from './Brand';
+import Model, { IModel } from './Model';
+import Category, { ICategory } from './Category';
+import Engine, { IEngine } from './Engine';
+import Part, { IPart } from './Part';
+import Order, { IOrder, IOrderItem, IOrderAddress, IOrderCustomer } from './Order';
+import Contact, { IContact } from './Contact';
 
 export {
   User,
@@ -23,7 +15,7 @@ export {
   Engine,
   Part,
   Order,
-  Contact,
+  Contact
 };
 
 export type {
@@ -32,10 +24,10 @@ export type {
   IModel,
   ICategory,
   IEngine,
-  IPart,
+  IPart, 
   IOrder,
   IOrderItem,
   IOrderAddress,
   IOrderCustomer,
-  IContact,
+  IContact
 }; 
