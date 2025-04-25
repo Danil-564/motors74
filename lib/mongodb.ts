@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 
-declare global {
-  var mongoose: {
-    conn: typeof mongoose | null;
-    promise: Promise<typeof mongoose> | null;
-  };
+// Глобальная переменная для хранения подключения
+let cached: any = global.mongoose;
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
 }
 
+// URI для подключения к MongoDB
 const MONGODB_URI = process.env.MONGODB_URI!;
 
 if (!MONGODB_URI) {
@@ -16,41 +16,40 @@ if (!MONGODB_URI) {
 }
 
 /**
- * Global is used here to maintain a cached connection across hot reloads
- * in development. This prevents connections growing exponentially
- * during API Route usage.
+ * Функция для подключения к MongoDB с использованием кэширования соединения
  */
-let cached = global.mongoose;
-
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
-
 async function dbConnect() {
+  // Если соединение уже установлено, возвращаем его
   if (cached.conn) {
     return cached.conn;
   }
 
+  // Если соединение в процессе установки, ждем
   if (!cached.promise) {
+    // Настройки для MongoDB
     const opts = {
       bufferCommands: false,
-      // Увеличиваем таймауты для стабильной работы в облачном окружении
       connectTimeoutMS: 30000,
       socketTimeoutMS: 45000,
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
-      console.log('Connected to MongoDB');
-      return mongoose;
-    }).catch(err => {
-      console.error('Error connecting to MongoDB:', err);
-      throw err;
-    });
+    // Устанавливаем соединение
+    cached.promise = mongoose.connect(MONGODB_URI, opts)
+      .then((mongooseInstance) => {
+        console.log('Connected to MongoDB');
+        return mongooseInstance;
+      })
+      .catch((err) => {
+        console.error('Error connecting to MongoDB:', err);
+        throw err;
+      });
   }
 
   try {
+    // Ожидаем установку соединения
     cached.conn = await cached.promise;
   } catch (e) {
+    // В случае ошибки сбрасываем обещание
     cached.promise = null;
     throw e;
   }
