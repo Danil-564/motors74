@@ -10,10 +10,8 @@ services:
       - key: PORT
         value: 10000
       - key: MONGODB_URI
-        fromDatabase:
-          name: motors74-db
-          property: connectionString
+        value: mongodb+srv://timeevdanil3:6wQvUwm2AxOdUoSA@motors74.zolkjbk.mongodb.net/?retryWrites=true&w=majority&appName=motors74
       - key: NEXTAUTH_URL
         value: https://motors74.onrender.com
       - key: NEXTAUTH_SECRET
-        generateValue: true 
+        value: jVP4SJyVQqA0NBBqRbbayA6o7QQ6o1/h3bZN2xvQwQc= 

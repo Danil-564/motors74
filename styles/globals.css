@@ -4,13 +4,27 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 10, 10, 10;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  @apply font-sans text-neutral-dark bg-white;
+}
+
 @layer base {
   html {
     @apply scroll-smooth;
-  }
-  
-  body {
-    @apply font-sans text-neutral-dark bg-white;
   }
   
   h1, h2, h3, h4, h5, h6 {
