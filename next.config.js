@@ -2,12 +2,17 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [
-      'motors74-bucket.s3.amazonaws.com',
-      'motors74-bucket.s3.eu-central-1.amazonaws.com'
-    ],
-    formats: ['image/avif', 'image/webp'],
+    domains: ['motors74.s3.amazonaws.com', 'motors74-images.s3.amazonaws.com'],
+    unoptimized: process.env.NODE_ENV === 'production',
   },
+  // Для работы с Render
+  poweredByHeader: false,
+  // Устанавливаем порт для Render
+  serverRuntimeConfig: {
+    port: parseInt(process.env.PORT, 10) || 3000,
+  },
+  // Для поддержки экспорта статических файлов
+  output: 'standalone',
   env: {
     MONGODB_URI: process.env.MONGODB_URI,
     JWT_SECRET: process.env.JWT_SECRET,

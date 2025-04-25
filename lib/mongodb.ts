@@ -11,7 +11,7 @@ const MONGODB_URI = process.env.MONGODB_URI!;
 
 if (!MONGODB_URI) {
   throw new Error(
-    'Please define the MONGODB_URI environment variable inside .env.local'
+    'Please define the MONGODB_URI environment variable inside .env.local or in your deployment environment'
   );
 }
 
@@ -34,10 +34,17 @@ async function dbConnect() {
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
+      // Увеличиваем таймауты для стабильной работы в облачном окружении
+      connectTimeoutMS: 30000,
+      socketTimeoutMS: 45000,
     };
 
     cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+      console.log('Connected to MongoDB');
       return mongoose;
+    }).catch(err => {
+      console.error('Error connecting to MongoDB:', err);
+      throw err;
     });
   }
 
